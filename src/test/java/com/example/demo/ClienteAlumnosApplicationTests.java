@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 class ClienteAlumnosApplicationTests {
@@ -21,7 +22,9 @@ class ClienteAlumnosApplicationTests {
 
 	@Test
 	void serverPortMatchesExpectedConfiguration() {
-		assertEquals(EXPECTED_SERVER_PORT, environment.getProperty("server.port"));
+		String configuredPort = environment.getProperty("server.port");
+		assertNotNull(configuredPort, "Expected 'server.port' to be configured");
+		assertEquals(EXPECTED_SERVER_PORT, configuredPort);
 	}
 
 }
