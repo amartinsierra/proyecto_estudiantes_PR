@@ -10,6 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class ClienteAlumnosApplicationTests {
 
+	private static final String EXPECTED_SERVER_PORT = "8000";
+
 	@Autowired
 	private Environment environment;
 
@@ -19,7 +21,7 @@ class ClienteAlumnosApplicationTests {
 
 	@Test
 	void serverPortIsConfiguredAs8000() {
-		assertEquals("8000", environment.getProperty("server.port"));
+		assertEquals(EXPECTED_SERVER_PORT, environment.getProperty("server.port"));
 	}
 
 }
