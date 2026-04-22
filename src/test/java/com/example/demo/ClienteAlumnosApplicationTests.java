@@ -20,7 +20,7 @@ class ClienteAlumnosApplicationTests {
 	}
 
 	@Test
-	void serverPortIsConfiguredAs8000() {
+	void serverPortMatchesExpectedConfiguration() {
 		assertEquals(EXPECTED_SERVER_PORT, environment.getProperty("server.port"));
 	}
 
