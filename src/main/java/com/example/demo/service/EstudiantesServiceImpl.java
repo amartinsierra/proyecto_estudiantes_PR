@@ -38,19 +38,7 @@ public class EstudiantesServiceImpl implements EstudiantesService {
 
 		return Arrays.stream(alumnos)
 				.map(MapeadorEstudiante::toDto)
-				.filter(e -> {
-					if (e == null || e.getNota() == null) {
-						return false;
-					}
-					float nota = e.getNota();
-					if (min != null && nota < min) {
-						return false;
-					}
-					if (max != null && nota > max) {
-						return false;
-					}
-					return true;
-				})
+				.filter(e -> e.getNota()>=min && e.getNota()<=max) //simplificamos el filtrado usando stream y lambda
 				.collect(Collectors.toList());
 	}
 
